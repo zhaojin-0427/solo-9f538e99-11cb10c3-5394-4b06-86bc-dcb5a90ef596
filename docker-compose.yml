@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: microplate-api:latest
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_PATH: /data/plates.db
+    volumes:
+      - plate-data:/data
+    restart: unless-stopped
+
+volumes:
+  plate-data:
